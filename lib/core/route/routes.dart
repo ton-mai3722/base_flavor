@@ -1,0 +1,4 @@
+class Routes {
+  static String splashScreen = '/splash-screen';
+  static String homeScreen = '/home-screen';
+}
