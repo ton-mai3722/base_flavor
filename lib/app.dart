@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/route/route_config.dart';
+import 'features/home_detail/presentation/bloc/home_detail_bloc.dart';
 import 'flavors.dart';
 
 class App extends StatelessWidget {
@@ -8,10 +10,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
-      title: F.title,
-      theme: ThemeData(primarySwatch: Colors.blue),
+    return BlocProvider(
+      create: (context) => HomeDetailBloc(),
+      child: MaterialApp.router(
+        routerConfig: router,
+        title: F.title,
+        theme: ThemeData(primarySwatch: Colors.blue),
+      ),
     );
   }
 }
